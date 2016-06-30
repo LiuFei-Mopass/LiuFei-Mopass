@@ -33,10 +33,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script> 
   	<script type="text/javascript" src="<%=paths%>js/backNews.js"></script>
+  	<%--
   	<script type="text/javascript" charset="utf-8" src="view/euditor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="view/euditor/ueditor.all.min.js"> </script>
     <script type="text/javascript" charset="utf-8" src="view/euditor/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript" src="view/euditor/index_js/euditor.js"></script>
+  	 --%>
 	    <div style="height: ${param.hei}px;width:100%" >
     		<table id="dg_news"></table>  
 		    <div id="dlg_news_edit" class="easyui-dialog" title="修改资讯信息"   
@@ -69,7 +71,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  		<p>资讯类型：<input id="cc" style="width:300px">  </p>
 				  		<p ><span style="vertical-align: top;">资讯内容：</span>
 							<div style="margin-left: 60px;margin-top: -28px;">
+								<%--
 								<script id="editor1" type="text/plain" style="width:650px;height:250px;"></script>
+								 --%>
+								 <jsp:include page="kindeditor.jsp"></jsp:include>
 							</div>
 						</p>
 				</div>
