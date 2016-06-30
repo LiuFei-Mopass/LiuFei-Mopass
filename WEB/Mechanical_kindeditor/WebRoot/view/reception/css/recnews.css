@@ -1,0 +1,107 @@
+.pageleft {
+	float: left;
+	height: 30px;
+}
+
+.pageright {
+	float: right;
+	width: 160px;
+	text-align: right;
+	height: 30px;
+}
+
+.pagebtn {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	line-height: 25px;
+	text-align: center;
+	border: 1px solid #EEE;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.pagebtn:hover {
+	border: 1px solid #DDD;
+	background: #F7F7F7;
+}
+
+.pagebtn:active {
+	border: 1px solid #DDD;
+	background: #E1E1E1;
+}
+
+.pageprev {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	border: 1px solid #EEE;
+	margin-right: 8px;
+	vertical-align: middle;
+	background: url(images/page_left.gif) no-repeat center center;
+}
+
+.pageprev:hover,.pagenext:hover {
+	background-color: #F7F7F7;
+	border: 1px solid #DDD;
+}
+
+.pageprev:active,.pagenext:active {
+	background-color: #E1E1E1;
+	border: 1px solid #DDD;
+}
+
+.pagebtnA {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	line-height: 25px;
+	text-align: center;
+	border: 1px solid #CCC;
+	background: #FFFFCC;
+	margin-right: 8px;
+	vertical-align: middle;
+	color: #FF6600;
+	font-weight: bold;
+}
+
+.pagenext {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	border: 1px solid #EEE;
+	margin-right: 8px;
+	vertical-align: middle;
+	background: url(view/reception/images/page_right.gif) no-repeat center center;
+}
+
+.pageinfo {
+	display: inline-block;
+	height: 26px;
+	line-height: 25px;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.trunpage {
+	font-size: 12px;
+	padding: 4px 4px 5px 4px;
+	border: 1px solid #EEEEEE;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.pageell {
+	display: inline-block;
+	height: 26px;
+	line-height: 25px;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+.back{
+color: rgb(102, 102, 102); 
+background-color: rgb(238, 238, 238);
+width: 450px;
+float: left;
+cursor: pointer;
+}
