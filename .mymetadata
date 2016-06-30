@@ -3,7 +3,7 @@
   type="WEB"
   name="Mechanical_kindeditor"
   id="myeclipse.1465122687997"
-  context-root="/Mechanical"
+  context-root="/Mechanical_kindeditor"
   j2ee-spec="5.0"
   archive="Mechanical_kindeditor.war">
   <attributes>
