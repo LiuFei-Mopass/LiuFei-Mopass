@@ -5477,8 +5477,8 @@ function _create(expr, options) {
 	options.pluginsPath = _undef(options.pluginsPath, options.basePath + 'plugins/');
 	if (_undef(options.loadStyleMode, K.options.loadStyleMode)) {
 		var themeType = _undef(options.themeType, K.options.themeType);
-		_loadStyle(options.themesPath + 'default/default.css');
-		_loadStyle(options.themesPath + themeType + '/' + themeType + '.css');
+		_loadStyle("view/editor/"+options.themesPath + 'default/default.css');
+		_loadStyle("view/editor/"+options.themesPath + themeType + '/' + themeType + '.css');
 	}
 	function create(editor) {
 		_each(_plugins, function(name, fn) {
@@ -7152,7 +7152,7 @@ KindEditor.plugin('image', function(K) {
 		allowFileManager = K.undef(self.allowFileManager, false),
 		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
 		imageTabIndex = K.undef(self.imageTabIndex, 0),
-		imgPath = self.pluginsPath + 'image/images/',
+		imgPath = "view/editor/"+self.pluginsPath + 'image/images/',
 		extraParams = K.undef(self.extraFileUploadParams, {}),
 		filePostName = K.undef(self.filePostName, 'imgFile'),
 		fillDescAfterUploadImage = K.undef(self.fillDescAfterUploadImage, false),
@@ -7164,7 +7164,8 @@ KindEditor.plugin('image', function(K) {
 			imageTitle = K.undef(options.imageTitle, ''),
 			imageAlign = K.undef(options.imageAlign, ''),
 			showRemote = K.undef(options.showRemote, true),
-			showLocal = K.undef(options.showLocal, true),
+			//	showLocal = K.undef(options.showLocal, true),
+			showLocal = K.undef("undefined", true),
 			tabIndex = K.undef(options.tabIndex, 0),
 			clickFn = options.clickFn;
 		var target = 'kindeditor_upload_iframe_' + new Date().getTime();
@@ -7283,6 +7284,9 @@ KindEditor.plugin('image', function(K) {
 			titleBox = K('.tab1 [name="title"]', div),
 			alignBox = K('.tab1 [name="align"]', div);
 		var tabs;
+		alert( showRemote);
+		alert( showLocal);
+		
 		if (showRemote && showLocal) {
 			tabs = K.tabs({
 				src : K('.tabs', div),
@@ -8029,7 +8033,7 @@ KindEditor.plugin('multiimage', function(K) {
 	var self = this, name = 'multiimage',
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
 		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
-		imgPath = self.pluginsPath + 'multiimage/images/',
+		imgPath = "view/editor/"+self.pluginsPath + 'multiimage/images/',
 		imageSizeLimit = K.undef(self.imageSizeLimit, '1MB'),
 		imageFileTypes = K.undef(self.imageFileTypes, '*.jpg;*.gif;*.png'),
 		imageUploadLimit = K.undef(self.imageUploadLimit, 20),
