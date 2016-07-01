@@ -23,7 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
 	<script type="text/javascript" src="<%=paths%>js/menu.js"></script> 
-	
 	<style type="text/css">
 		html,body,div{margin: 0;padding: 0;font-family:"Microsoft YaHei";font-size: 12px; }
 	</style> 
