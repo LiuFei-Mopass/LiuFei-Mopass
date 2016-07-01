@@ -1,6 +1,7 @@
 package com.demo.controller.bac;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.demo.backstage.doman.DataGrid;
+import com.demo.backstage.doman.MessageObj;
 import com.demo.backstage.doman.News;
 import com.demo.backstage.doman.Util;
 import com.demo.backstage.service.newsService;
@@ -39,6 +41,19 @@ public class NewsController {
 		datagrid.setRows(newsList);
 		return datagrid;
 	}
+	
+	
+	@RequestMapping(value="/addNews.html")
+	@ResponseBody
+	public MessageObj addNewsMsg(Map<String,String> parms){
+		MessageObj msg = new MessageObj();
+		
+		
+		return msg;
+	}
+	
+	
+	
 	
 	
 	

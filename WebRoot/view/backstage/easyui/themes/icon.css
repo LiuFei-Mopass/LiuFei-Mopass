@@ -39,7 +39,7 @@
 	background:url('icons/cut.png') no-repeat center center;
 }
 .icon-ok{
-	background:url('icons/ok.png') no-repeat center center;
+	background:url('icons/icons.gif') repeat scroll -22px -2px;
 }
 .icon-no{
 	background:url('icons/no.png') no-repeat center center;

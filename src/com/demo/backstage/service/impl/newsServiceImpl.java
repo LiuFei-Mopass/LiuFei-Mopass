@@ -20,17 +20,6 @@ public class newsServiceImpl implements newsService {
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
 	static String CLASSNAME = new newsServiceImpl().getClass().getName();
 
-	@Override
-	public String pageFindNews(Util news) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getPageForNews(Util news) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/**
 	 * 方法描述- recnews.jsp 页面数据
@@ -135,6 +124,16 @@ public class newsServiceImpl implements newsService {
 			e.printStackTrace();
 		}
 		return newsList;
+	}
+
+	@Override
+	public Integer addNewsMsg(News news) {
+		
+		String sql = "insert into bac_news ";
+		
+		
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -7,17 +7,6 @@ import com.demo.backstage.doman.Util;
 
 public interface newsService {
 	
-	/**前台页面查询最新新闻动态
-	 * @return
-	 */
-	public String pageFindNews(Util news);
-	
-	
-	/**<!--获取news.jsp页面的新闻数据翻页   -->
-	 * @param news
-	 * @return
-	 */
-	public String getPageForNews(Util news);
 	public List<News> getNewsToPage(Util news);
 	
 	/**
@@ -53,6 +42,9 @@ public interface newsService {
 	 */
 	 
 	public List<News> getNewsList(News news,String type);
+	
+	
+	public Integer addNewsMsg(News news);
 	
 	
 	

@@ -32,7 +32,7 @@ $(function(){
 //		toolbar: '#tb_newsTools',
 		
 		toolbar: [{
-			iconCls: 'icon-search',
+			iconCls: 'icon-ok',
 			text : "查询",
 			width :70,
 			handler: function(){
