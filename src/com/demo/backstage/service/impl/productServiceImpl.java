@@ -58,7 +58,7 @@ public class productServiceImpl implements productService {
 			for (Map<String, String> map : findModeResult) {
 				Product product = new Product();
 				product.setId(Integer.parseInt(map.get("id").toString()));
-				product.setProductName(map.get("product_name").toString());
+				product.setProductName(map.get("product_name")+"");
 //				product.setParentId(Integer.parseInt(map.get("parent_id")+""));
 //				product.setProductPageType(Integer.parseInt(map.get("product_pagetype")+""));
 				product.setProduntThumbnail(map.get("produnt_thumbnail")+"");

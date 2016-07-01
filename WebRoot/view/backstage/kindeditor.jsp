@@ -8,11 +8,17 @@ String htmlData = request.getParameter("content1") != null ? request.getParamete
 <head>
 	<meta charset="utf-8" />
 	<title>KindEditor JSP</title>
+	<%--
 	<link rel="stylesheet" href="view/editor/themes/default/default.css" />
 	<link rel="stylesheet" href="view/editor/plugins/code/prettify.css" />
 	<script charset="utf-8" src="view/editor/kindeditor-all.js"></script>
 	<script charset="utf-8" src="view/editor/lang/zh-CN.js"></script>
 	<script charset="utf-8" src="view/editor/plugins/code/prettify.js"></script>
+	 --%>
+
+
+</head>
+<body>
 	<script>
 		KindEditor.ready(function(K) {
 			var editor1 = K.create('textarea[name="content1"]', {
@@ -35,8 +41,6 @@ String htmlData = request.getParameter("content1") != null ? request.getParamete
 			prettyPrint();
 		});
 	</script>
-</head>
-<body>
 	<%=htmlData%>
 	<form name="example" method="post" action="kindeditor.jsp">
 		<textarea name="content1" cols="100" rows="8" style="width:700px;height:200px;visibility:hidden;"><%=htmlspecialchars(htmlData)%></textarea>

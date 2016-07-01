@@ -5,7 +5,8 @@ String paths = request.getContextPath()+"/view/backstage/";
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
     <base href="<%=basePath%>">
@@ -21,6 +22,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/icon.css" />   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script> 
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
+	
+	
+	 
   </head>
   
   <body  >
@@ -34,11 +38,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script> 
   	<script type="text/javascript" src="<%=paths%>js/backNews.js"></script>
   	<%--
-  	<script type="text/javascript" charset="utf-8" src="view/euditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="view/euditor/ueditor.all.min.js"> </script>
-    <script type="text/javascript" charset="utf-8" src="view/euditor/lang/zh-cn/zh-cn.js"></script>
-	<script type="text/javascript" src="view/euditor/index_js/euditor.js"></script>
   	 --%>
+	<link rel="stylesheet" type="text/css"   href="<%=path %>/view/editor/plugins/code/prettify.css" />
+	<script charset="utf-8" src="<%=path %>/view/editor/kindeditor-all.js"></script>
+	<script charset="utf-8" src="<%=path %>/view/editor/all.js"></script>
+	<script charset="utf-8" src="<%=path %>/view/editor/lang/zh-CN.js"></script>
+	<script charset="utf-8" src="<%=path %>/view/editor/plugins/code/prettify.js"></script>
+  	<link rel="stylesheet"  type="text/css"  href="<%=path %>/view/editor/themes/default/default.css" />
+
 	    <div style="height: ${param.hei}px;width:100%" >
     		<table id="dg_news"></table>  
 		    <div id="dlg_news_edit" class="easyui-dialog" title="修改资讯信息"   
@@ -53,7 +60,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  		<p>资讯类型：<input id='type_edit' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 					  		<p ><span style="vertical-align: top;">资讯内容：</span>
 									<div style="margin-left: 60px;margin-top: -28px;">
+									<%--
 										<script id="editor" type="text/plain" style="width:650px;height:250px;"></script>
+									 <jsp:include page="kindeditor.jsp"></jsp:include>
+									 --%>
+	 								  <textarea name="easyui_ditor" id="easyui_editor" class="easyui-kindeditor" style="width: 250px; height: 200px; visibility: hidden;"></textarea>
 									</div>				
 								</div>
 							</p>
@@ -66,15 +77,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        		},{
 							text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dlg_news_add').dialog('close');}
 					}]"> 
-				<div id='dlg_news_add_con' class='hide' style="margin-left: 50px">
+				<div id='dlg_news_add_con' class='' style="margin-left: 50px">
 				  		<p>资讯标题：<input id='title_add' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 				  		<p>资讯类型：<input id="cc" style="width:300px">  </p>
 				  		<p ><span style="vertical-align: top;">资讯内容：</span>
 							<div style="margin-left: 60px;margin-top: -28px;">
 								<%--
 								<script id="editor1" type="text/plain" style="width:650px;height:250px;"></script>
-								 --%>
 								 <jsp:include page="kindeditor.jsp"></jsp:include>
+								 --%>
+								  <textarea name="easyui_ditor" id="easyui_ditor" class="easyui-kindeditor" style="width: 250px; height: 200px; visibility: hidden;">EasyUI集合KindEditor</textarea>
 							</div>
 						</p>
 				</div>

@@ -128,7 +128,7 @@ function openUpdateNewsInfo(id){
 	var rowData = $('#dg_news').datagrid("getSelected");
 	$("#title_edit").textbox("setValue",rowData.newTitle);
 	$("#type_edit").textbox("setValue",rowData.newType);
-	UE.getEditor('editor').setContent(rowData.newContent);
+	//UE.getEditor('editor').setContent(rowData.newContent);
 	
 }
 
