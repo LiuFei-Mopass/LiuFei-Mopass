@@ -34,6 +34,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 .datagrid-row {
         height: 32px;
     }
+    #dg_news .datagrid-btable tr{height: 40px;}
+    .datagrid-row {
+        height: 40px;
+        overflow: hidden;
+    }
 	</style>
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script> 
   	<script type="text/javascript" src="<%=paths%>js/backNews.js"></script>
@@ -51,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <div id="dlg_news_edit" class="easyui-dialog" title="修改资讯信息"   
 		        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:850,height:520,closed:true,
 		        buttons:[{ 
-		        			text:'确定', iconCls:'icon-save', onClick:function(){ updateNewsInfo(); } 
+		        			text:'确定', iconCls:'icon-ok', onClick:function(){ updateNewsInfo(); } 
 		        		},{
 							text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dlg_news_edit').dialog('close');}
 					}]">   
@@ -73,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="dlg_news_add" class="easyui-dialog" title="新增资讯信息"   
 		        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:850,height:520,closed:true,
 		        buttons:[{ 
-		        			text:'确定', iconCls:'icon-save', onClick:function(){ saveNewsInfo(); } 
+		        			text:'确定', iconCls:'icon-ok', onClick:function(){ saveNewsInfo(); } 
 		        		},{
 							text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dlg_news_add').dialog('close');}
 					}]"> 
