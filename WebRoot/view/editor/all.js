@@ -3,6 +3,9 @@
         throw "KindEditor未定义!";
 
     function create(target) {
+    	cssPath : 'view/editor/plugins/code/prettify.css';
+    	uploadJson : 'view/editor/jsp/upload_json.jsp';
+		fileManagerJson : 'view/editor/jsp/file_manager_json.jsp';
         var opts = $.data(target, 'kindeditor').options;
         var editor = K.create(target, opts);
         $.data(target, 'kindeditor').options.editor = editor;
@@ -46,7 +49,7 @@
         items : [
             'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
             'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-            'insertunorderedlist', '|', 'emoticons', 'image', 'link'],
+            'insertunorderedlist', '|', 'emoticons', 'image', 'multiimage','link'],
         afterChange:function(){
             this.sync();
         }
