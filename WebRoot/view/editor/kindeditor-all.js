@@ -7150,7 +7150,7 @@ KindEditor.plugin('image', function(K) {
 		allowImageRemote = K.undef(self.allowImageRemote, true),
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
 		allowFileManager = K.undef(self.allowFileManager, false),
-		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
+		uploadJson = K.undef(self.uploadJson, self.basePath + 'view/editor/jsp/upload_json.jsp'),
 		imageTabIndex = K.undef(self.imageTabIndex, 0),
 		imgPath = "view/editor/"+self.pluginsPath + 'image/images/',
 		extraParams = K.undef(self.extraFileUploadParams, {}),
@@ -7284,21 +7284,18 @@ KindEditor.plugin('image', function(K) {
 			titleBox = K('.tab1 [name="title"]', div),
 			alignBox = K('.tab1 [name="align"]', div);
 		var tabs;
-		alert( showRemote);
-		alert( showLocal);
-		
 		if (showRemote && showLocal) {
 			tabs = K.tabs({
 				src : K('.tabs', div),
 				afterSelect : function(i) {}
 			});
 			tabs.add({
-				title : lang.localImage,
-				panel : K('.tab2', div)
-			});
-			tabs.add({
 				title : lang.remoteImage,
 				panel : K('.tab1', div)
+			});
+			tabs.add({
+				title : lang.localImage,
+				panel : K('.tab2', div)
 			});
 			tabs.select(tabIndex);
 		} else if (showRemote) {
@@ -8032,7 +8029,7 @@ K.swfupload = function(element, options) {
 KindEditor.plugin('multiimage', function(K) {
 	var self = this, name = 'multiimage',
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
-		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
+		uploadJson = K.undef(self.uploadJson, self.basePath + 'view/editor/jsp/upload_json.jsp'),
 		imgPath = "view/editor/"+self.pluginsPath + 'multiimage/images/',
 		imageSizeLimit = K.undef(self.imageSizeLimit, '1MB'),
 		imageFileTypes = K.undef(self.imageFileTypes, '*.jpg;*.gif;*.png'),
