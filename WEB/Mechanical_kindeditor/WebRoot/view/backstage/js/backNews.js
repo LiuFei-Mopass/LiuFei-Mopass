@@ -57,8 +57,11 @@ $(function(){
 			handler: function(){
 				var rowData = $('#dg_news').datagrid("getSelected");
 				if(rowData!=null){
-					//deleteNewsInfo(rowData.id);
-					alertMsgBox("提示","删除!","info");
+					$.messager.confirm('确认','您确认想要删除记录吗？',function(r){    
+					    if (r){    
+					        //deleteNewsInfo();
+					    }    
+					});
 				}else{
 					alertMsgBox("提示","请选择要删除的数据!","info");
 				}
@@ -200,3 +203,48 @@ function saveNewsInfo(){
 		alertMsgBox("提示","信息不能为空!","info");
 	}
 }
+
+
+function deleteNewsInfo(){
+	var rowData = $('#dg_news').datagrid("getSelected");
+	var id = rowData.id;
+	$.ajax({                                                                     
+		url : "news/deleteNews.html",
+		type : 'post',
+		data :'id='+id,
+		dataType : "json",
+		async: false,
+		success : function(root) {
+			alert(root.errMessage1);
+			//刷新数据
+			$('#dg_news').datagrid('reload');    
+		}
+	});
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -54,10 +54,14 @@ public class NewsController {
 	}
 	
 	
-	
+	@RequestMapping(value="/deleteNews.html")
+	@ResponseBody
 	public MessageObj deleteNewsMsg(String id){
 		MessageObj msg = new MessageObj();
-		
+		Integer res = newsservice.deleteNewsInfo(id);
+		if(res>0){
+			msg.setErrMessage1("删除成功!");
+		}
 		return msg;
 	}
 	

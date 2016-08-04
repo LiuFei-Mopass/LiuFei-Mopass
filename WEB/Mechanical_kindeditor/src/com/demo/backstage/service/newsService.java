@@ -47,5 +47,15 @@ public interface newsService {
 	public Integer addNewsMsg(News news);
 	
 	
+	/**
+	 * 方法描述-删除新闻信息
+	 * @param id
+	 * @return
+	 * @author  LIUFEI
+	 * @date  2016-8-4
+	 */
+	public Integer deleteNewsInfo(String id);
+	
+	
 	
 }

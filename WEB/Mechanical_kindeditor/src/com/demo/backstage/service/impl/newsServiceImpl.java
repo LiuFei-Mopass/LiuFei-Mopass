@@ -136,4 +136,18 @@ public class newsServiceImpl implements newsService {
 		return null;
 	}
 
+	@Override
+	public Integer deleteNewsInfo(String id) {
+		Integer res = 0;
+		if(StringUtil.isNotEmpty(id)){
+			String sql = " update bac_news set isdelete='1' where id= "+Integer.parseInt(id);
+			try {
+				res = jdbcutils.saveOrUpdateData(sql, null);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
+
 }
