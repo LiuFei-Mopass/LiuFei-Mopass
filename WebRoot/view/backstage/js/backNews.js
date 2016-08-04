@@ -1,7 +1,7 @@
 $(function(){
 	$('#dg_news').datagrid({    
 		
-		url:'getNewsList.html',   
+		url:'news/getNewsList.html',   
 	    
 	    loadMsg : '正在玩命的为您加载。。。', //加载数据是显示的提示 
 		
@@ -13,7 +13,7 @@ $(function(){
 		
 		singleSelect : true,  //只允许选择一行
 		
-	//	fit:true, //自动适应高度和宽度
+	//fit:true, //自动适应高度和宽度
 		
 		striped : true,  //表格显示条纹
 		
@@ -32,17 +32,11 @@ $(function(){
 //		toolbar: '#tb_newsTools',
 		
 		toolbar: [{
-			iconCls: 'icon-ok',
-			text : "查询",
+			iconCls: 'icon-add',
+			text : "新增",
 			width :70,
 			handler: function(){
-				var rowData = $('#dg_news').datagrid("getSelected");
-				if(rowData!=null){
-					addNewsInfo(rowData.id);
-				}else{
-					alertMsgBox("提示","请选择要修改的数据!","info");
-				}
-				
+				openAddNewsInfo("");
 			}
 		},'-',{
 			iconCls: 'icon-edit',
@@ -57,11 +51,17 @@ $(function(){
 				}
 			}
 		},'-',{
-			iconCls: 'icon-add',
-			text : "新增",
+			iconCls: 'icon-remove',
+			text : "删除",
 			width :70,
 			handler: function(){
-				openAddNewsInfo("");
+				var rowData = $('#dg_news').datagrid("getSelected");
+				if(rowData!=null){
+					//deleteNewsInfo(rowData.id);
+					alertMsgBox("提示","删除!","info");
+				}else{
+					alertMsgBox("提示","请选择要删除的数据!","info");
+				}
 			}
 		},],  
 		
@@ -107,14 +107,16 @@ $(function(){
 });
 
 function openAddNewsInfo(id){
-	$('#cc').combobox({    
+	/*$('#cc').combobox({    
 	    url:'backRightAction_getNewsType',    
 	    valueField:'ekey',    
 	    textField:'evalue'   
-	}); 
+	}); */
 	$('#dlg_news_add').dialog('open');
 	$("#dlg_news_add_con").removeClass("hide");
-	UE.getEditor('editor1');
+	
+	
+	
 	
 }
 
@@ -129,6 +131,8 @@ function openUpdateNewsInfo(id){
 	$("#title_edit").textbox("setValue",rowData.newTitle);
 	$("#type_edit").textbox("setValue",rowData.newType);
 	//UE.getEditor('editor').setContent(rowData.newContent);
+	//给Kindeditor编辑器设置内容
+	KindEditor.html('#easyui_editor', rowData.newContent);
 	
 }
 
@@ -138,7 +142,7 @@ function updateNewsInfo(){
 
 	var tit = $("#title_edit").textbox("getValue");
 	var type =  $("#type_edit").textbox("getValue");
-	var con = UE.getEditor('editor').getContent();
+	//var con = UE.getEditor('editor').getContent();
 	con = con.replace(/&nbsp;/g,'<KG>');
 	alert(con);
 	$.ajax({                                                                     
@@ -167,7 +171,7 @@ function updateNewsInfo(){
 function saveNewsInfo(){
 	var tit = $("#title_add").textbox("getValue");
 	var type = $('#cc').combobox("getValue");
-	var con = UE.getEditor('editor1').getContent();
+	//var con = UE.getEditor('editor1').getContent();
 	con = con.replace(/&nbsp;/g,'<KG>');
 	alert(type);
 	alert(con);

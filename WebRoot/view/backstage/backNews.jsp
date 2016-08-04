@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<script id="editor1" type="text/plain" style="width:650px;height:250px;"></script>
 								 <jsp:include page="kindeditor.jsp"></jsp:include>
 								 --%>
-								  <textarea name="easyui_ditor" id="easyui_ditor" class="easyui-kindeditor" style="width: 250px; height: 200px; visibility: hidden;">EasyUI集合KindEditor</textarea>
+								  <textarea name="easyui_ditor" id="easyui_ditor" class="easyui-kindeditor" style="width: 250px; height: 200px; visibility: hidden;"></textarea>
 							</div>
 						</p>
 				</div>

@@ -16,6 +16,7 @@ import com.demo.backstage.service.newsService;
 import com.demo.backstage.service.impl.newsServiceImpl;
 
 @Controller
+@RequestMapping(value="/news")
 public class NewsController {
 	
 	Logger log = Logger.getLogger(NewsController.class);
@@ -35,8 +36,8 @@ public class NewsController {
 		utils.setStr1("bac");//bac -全部显示  rec-显示180个字
 		//分页查询显示新闻信息
 		List<News> newsList= newsservice.getNewsToPage(utils);
-		//获取总条数
 		int pagesize = newsservice.getNewsList(null,"rec").size();
+		//获取总条数
 		datagrid.setTotal(pagesize+"");
 		datagrid.setRows(newsList);
 		return datagrid;
@@ -51,6 +52,20 @@ public class NewsController {
 		
 		return msg;
 	}
+	
+	
+	
+	public MessageObj deleteNewsMsg(String id){
+		MessageObj msg = new MessageObj();
+		
+		return msg;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

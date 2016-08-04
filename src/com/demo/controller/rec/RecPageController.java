@@ -36,6 +36,24 @@ public class RecPageController {
 		Util utils = new Util();
 		Integer a = page; //当前页数
 		Integer b = 4; //每页显示几条数据
+		int pagesize = newsservice.getNewsList(null,"rec").size();
+		//判断页面不再范围内  取页码极值
+		if(pagesize%b==0){
+			if(a>=pagesize/b){
+				a = pagesize/b;
+			}
+			if(a<=0){
+				a=1;
+			}
+		}else{
+			if(a>=(pagesize/b)+1){
+				a = (pagesize/b)+1;
+			}
+			if(a<=0){
+				a=1;
+			}
+		}
+		
 		if(a==1){
 			utils.setInteger1(0);
 		}else{
@@ -43,14 +61,14 @@ public class RecPageController {
 		}
 		utils.setInteger2(b);
 		utils.setStr1("rec");
-		
+		mv.addObject("page", a);//当前页数
 		//获取页面数据
 		List<News> newsList = newsservice.getNewsToPage(utils);
 		mv.addObject("NewsList",newsList);
-		mv.addObject("page", a);//当前页数
 		//获取新闻列表信息SIZE
-		int pagesize = newsservice.getNewsList(null,"rec").size();
-		if(pagesize%b>0){
+		if(pagesize%b==0){
+			pagesize = (pagesize/b);
+		}else{
 			pagesize = (pagesize/b)+1;
 		}
 		//总页数
