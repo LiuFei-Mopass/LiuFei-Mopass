@@ -12,7 +12,9 @@ import java.sql.Timestamp;
 public class Enums {
 	private Integer id;
 	private String ekey;
-	private String evalue;
+	private String evalue1;
+	private String evalue2;
+	private String evalue3;
 	private String queryId;
 	private String sequ;
 	private String createUser;
@@ -40,11 +42,24 @@ public class Enums {
 	public void setEkey(String ekey) {
 		this.ekey = ekey;
 	}
-	public String getEvalue() {
-		return evalue;
+
+	public String getEvalue1() {
+		return evalue1;
 	}
-	public void setEvalue(String evalue) {
-		this.evalue = evalue;
+	public void setEvalue1(String evalue1) {
+		this.evalue1 = evalue1;
+	}
+	public String getEvalue2() {
+		return evalue2;
+	}
+	public void setEvalue2(String evalue2) {
+		this.evalue2 = evalue2;
+	}
+	public String getEvalue3() {
+		return evalue3;
+	}
+	public void setEvalue3(String evalue3) {
+		this.evalue3 = evalue3;
 	}
 	public String getQueryId() {
 		return queryId;
