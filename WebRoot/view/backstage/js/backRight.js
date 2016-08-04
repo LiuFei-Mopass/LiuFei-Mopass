@@ -33,7 +33,7 @@ $(function(){
 		},
 		
 		toolbar: [{
-			iconCls: 'icon-search',
+			iconCls: 'icon-add',
 			text : "查询",
 			width :70,
 			handler: function(){alert('编辑按钮')}
@@ -110,14 +110,14 @@ function onLoadChildRights(id){
 //		toolbar: '#tb_rights',
 		
 		toolbar: [{
-			iconCls: 'icon-search',
+			iconCls: 'icon-add',
 			text : "新增",
 			width :70,
 			handler: function(){
 				
 			}
 		},'-',{
-			iconCls: 'icon-add',
+			iconCls: 'icon-edit',
 			text : "修改",
 			width :70,
 			handler: function(){
@@ -127,10 +127,19 @@ function onLoadChildRights(id){
 				}else{
 					alertMsgBox("提示","请选择要修改的数据!","info");
 				}
-				
-				
 			}
-		},'-'],
+		},'-',{
+			iconCls: 'icon-remove',
+			text : "删除",
+			width :70,
+			handler: function(){
+				var rowData = $("#dg_rights").datagrid("getSelected");
+				if(rowData!=null){
+				}else{
+					alertMsgBox("提示","请选择要删除的数据!","info");
+				}
+			}
+		}],
 		
 		columns:[[    
 			        {

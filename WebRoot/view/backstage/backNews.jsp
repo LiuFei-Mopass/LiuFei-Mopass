@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div style="height: ${param.hei}px;width:100%" >
     		<table id="dg_news"></table>  
 		    <div id="dlg_news_edit" class="easyui-dialog" title="修改资讯信息"   
-		        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:850,height:520,closed:true,
+		        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:850,height:520,closed:true,maximizable:true,
 		        buttons:[{ 
 		        			text:'确定', iconCls:'icon-ok', onClick:function(){ updateNewsInfo(); } 
 		        		},{

@@ -63,8 +63,10 @@ public  class jdbcUtils   {
 		try {
 			log.info("[ jdbc.execute 执行sql:"+sql+"  ]");
 			ps = con.prepareStatement(sql);
-			for (int i = 0; i < par.length; i++) {
-				ps.setObject(i+1, par[i]);
+			if(par!=null){
+				for (int i = 0; i < par.length; i++) {
+					ps.setObject(i+1, par[i]);
+				}
 			}
 			result = ps.executeUpdate();
 		} catch (Exception e) {
@@ -94,7 +96,7 @@ public  class jdbcUtils   {
 	public static List<Map<String, String>> executeQuery(String sql){
 		PreparedStatement ps = null;
 		ResultSet rs =null;
-		Connection con  = new DBConnection().getConnection();
+		Connection con  = cons.getConnection();
 		List<Map<String, String>> list = new ArrayList<Map<String,String>>();
 		try {
 			log.info("[ jdbc.execute 执行sql:"+sql+"  ]");
@@ -123,7 +125,7 @@ public  class jdbcUtils   {
 		ResultSet rs =null;
 		List<Map<String, String>> list = new ArrayList<Map<String,String>>();
 		try {
-			con = new DBConnection().getConnection();
+			con = cons.getConnection();
 			log.info("[ jdbc.execute 执行sql:"+sql+"  ]");
 			ps = con.prepareStatement(sql.toLowerCase());
 			if(parm!=null){
