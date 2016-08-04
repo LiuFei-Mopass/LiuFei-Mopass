@@ -33,7 +33,9 @@ public class enumServiceImpl implements enumService {
 			Enums enums = new Enums();
 			enums.setId(Integer.parseInt(map.get("id")));
 			enums.setEkey(map.get("ekey"));
-			enums.setEvalue(map.get("evalue"));
+			enums.setEvalue1(map.get("evalue1"));
+			enums.setEvalue2(map.get("evalue2"));
+			enums.setEvalue3(map.get("evalue3"));
 			enums.setQueryId(map.get("query_id"));
 			enums.setSequ(map.get("sequ"));
 			enums.setCreateUser(map.get("create_user"));
@@ -132,43 +134,37 @@ public class enumServiceImpl implements enumService {
 		log.info("*****查询所花时间："+(endTime-startTime));
 		return enumlist;
 	}
-
-
-
+	/**
+	 * 方法描述-修改枚举类型
+	 * @param enums
+	 * @return
+	 * @author  LIUFEI
+	 * @date  2016-8-4
+	 */
 	@Override
-	public List<Enums> findBackEnumsByQueryId(String queryId) {
+	public String updateEnumsType(Enums enums) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String addEnumsType(Enums enums) {	
+		
+
+
+		return null;
+	}
+	@Override
+	public String updateEnumsChild(Enums enums) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String addEnumsChild(Enums enums) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public String findBackEnumsByQueryIdToJson(String queryId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public String saveBackEnumsParent(EnumsParent enumsParent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public String saveBackEnums(Enums enums) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String updateBackEnumsParent(EnumsParent enumsParent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String updateBackEnums(Enums enums) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

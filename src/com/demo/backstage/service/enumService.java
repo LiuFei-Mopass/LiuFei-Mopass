@@ -24,48 +24,41 @@ public interface enumService {
 	 */
 	 
 	public  List<Enums>  getEnumsChildList(String parentid);
-	
-	/**
-	 * 查询具体枚举值
-	 * liufei 2016-1-12
-	 * @param queryId
-	 * @return
-	 */
-	public List<Enums> findBackEnumsByQueryId(String queryId);
-	
-	public String findBackEnumsByQueryIdToJson(String queryId);
+
 	
 	
-	/**
-	 * 新增枚举值类型
-	 * @param enumsParent
-	 * @return
-	 */
-	public String saveBackEnumsParent(EnumsParent enumsParent);
-	
-	/**
-	 * 新增枚举值
-	 * @param enums
-	 * @return
-	 */
-	public String saveBackEnums(Enums enums);
-	
-	
-	/**
-	 * 修改枚举类型
-	 * liufei 2016-1-14
-	 * @param enumsParent
-	 * @return
-	 */
-	public String updateBackEnumsParent(EnumsParent enumsParent);
+
 	/**
 	 * 修改具体枚举值
 	 * liufei 2016-1-14
 	 * @param enums
 	 * @return
 	 */
-	public String updateBackEnums(Enums enums);
+	public String updateEnumsType(Enums enums);
+	/**
+	 * 方法描述-新增枚举类型
+	 * @param enums
+	 * @return
+	 * @author  LIUFEI
+	 * @date  2016-8-4
+	 */
+	public String addEnumsType(Enums enums);
 	
+	/**
+	 * 修改具体枚举值
+	 * liufei 2016-1-14
+	 * @param enums
+	 * @return
+	 */
+	public String updateEnumsChild(Enums enums);
+	/**
+	 * 方法描述-新增枚举值
+	 * @param enums
+	 * @return
+	 * @author  LIUFEI
+	 * @date  2016-8-4
+	 */
+	public String addEnumsChild(Enums enums);
 	
 	public Integer getEnumsSize();
 	

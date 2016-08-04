@@ -35,7 +35,37 @@ $(function(){
 		
 		scrollbarSize: 0,   //滚动条的宽度
 		
-		toolbar: '#tb_enumsParent',
+		toolbar: [{
+			iconCls: 'icon-add',
+			text : "新增",
+			width :70,
+			handler: function(){
+				
+			}
+		},'-',{
+			iconCls: 'icon-edit',
+			text : "修改",
+			width :70,
+			handler: function(){
+				var rowData = $("#dg_enumsParent").datagrid("getSelected");
+				if(rowData!=null){
+					updateEnums();
+				}else{
+					alertMsgBox("提示","请选择要修改的数据!","info");
+				}
+			}
+		},'-',{
+			iconCls: 'icon-remove',
+			text : "删除",
+			width :70,
+			handler: function(){
+				var rowData = $("#dg_enumsParent").datagrid("getSelected");
+				if(rowData!=null){
+				}else{
+					alertMsgBox("提示","请选择要删除的数据!","info");
+				}
+			}
+		}],
 		
 		onClickRow: function(rowIndex, rowData){
 			onloadBackEnums(rowData.evalue);
@@ -116,16 +146,7 @@ $(function(){
 	//打开修改枚举类型dialog
 	$("#edit_enumsParent").linkbutton({
 		onClick:function(){
-			var enumsParent = $('#dg_enumsParent').datagrid('getSelected');
-			if(enumsParent!=null){
-				$('#dd_dlg_parent_edit').panel('open');
-				$("#s1_editParent_text").textbox("setValue",enumsParent.evalue);
-				$("#s2_editParent_text").textbox("setValue",enumsParent.ename);
-				$("#s3_editParent_text").val(enumsParent.edesc);
-				
-			}else{
-				alertMsgBox("提示","请选择枚举类型！");
-			}
+			
 		}
 	});
 	//打开修改枚举值dialog
@@ -144,6 +165,22 @@ $(function(){
 	});
 
 });
+
+
+
+
+
+function updateEnums(){
+	var enumsParent = $('#dg_enumsParent').datagrid('getSelected');
+	if(enumsParent!=null){
+		$('#dd_dlg_parent_edit').panel('open');
+		$("#s1_editParent_text").textbox("setValue",enumsParent.evalue);
+		$("#s2_editParent_text").textbox("setValue",enumsParent.ename);
+		$("#s3_editParent_text").val(enumsParent.edesc);
+	}else{
+		alertMsgBox("提示","请选择枚举类型！");
+	}
+}
 
 
 
@@ -180,7 +217,37 @@ function onloadBackEnums(queryId){
 		
 		scrollbarSize: 0,   //滚动条的宽度
 		
-		toolbar: '#tb_enums',
+		toolbar: [{
+			iconCls: 'icon-add',
+			text : "新增",
+			width :70,
+			handler: function(){
+				
+			}
+		},'-',{
+			iconCls: 'icon-edit',
+			text : "修改",
+			width :70,
+			handler: function(){
+				var rowData = $("#dg_rights").datagrid("getSelected");
+				if(rowData!=null){
+					openRightDataDialog();
+				}else{
+					alertMsgBox("提示","请选择要修改的数据!","info");
+				}
+			}
+		},'-',{
+			iconCls: 'icon-remove',
+			text : "删除",
+			width :70,
+			handler: function(){
+				var rowData = $("#dg_rights").datagrid("getSelected");
+				if(rowData!=null){
+				}else{
+					alertMsgBox("提示","请选择要删除的数据!","info");
+				}
+			}
+		}],
 		
 		
 	    columns:[[    
@@ -196,17 +263,26 @@ function onloadBackEnums(queryId){
 			width : 100,
 			align : 'center'
 		}, {
-			field : 'evalue',
-			title : '枚举描述',
+			field : 'evalue1',
+			title : 'Value1',
 			width : 100,
 			align : 'center',
 			text  : '123'
+		}, {
+			field : 'evalue2',
+			title : 'Value2',
+			width : 100,
+			align : 'center',
+		}, {
+			field : 'evalue3',
+			title : 'Value3',
+			width : 100,
+			align : 'center',
 		},{
 			field : 'queryId',
 			title : '枚举类型',
 			width : 100,
 			align : 'center',
-			text  : '123'
 		}, {
 			field : 'createUser',
 			title : '创建人',
