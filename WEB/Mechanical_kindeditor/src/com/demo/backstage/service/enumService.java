@@ -34,7 +34,7 @@ public interface enumService {
 	 * @param enums
 	 * @return
 	 */
-	public String updateEnumsType(Enums enums);
+	public Integer updateEnumsType(EnumsParent enumsPar);
 	/**
 	 * 方法描述-新增枚举类型
 	 * @param enums
@@ -42,7 +42,7 @@ public interface enumService {
 	 * @author  LIUFEI
 	 * @date  2016-8-4
 	 */
-	public String addEnumsType(Enums enums);
+	public Integer addEnumsType(EnumsParent enumsPar);
 	
 	/**
 	 * 修改具体枚举值
@@ -50,7 +50,7 @@ public interface enumService {
 	 * @param enums
 	 * @return
 	 */
-	public String updateEnumsChild(Enums enums);
+	public Integer updateEnumsChild(Enums enums);
 	/**
 	 * 方法描述-新增枚举值
 	 * @param enums
@@ -58,7 +58,7 @@ public interface enumService {
 	 * @author  LIUFEI
 	 * @date  2016-8-4
 	 */
-	public String addEnumsChild(Enums enums);
+	public Integer addEnumsChild(Enums enums);
 	
 	public Integer getEnumsSize();
 	

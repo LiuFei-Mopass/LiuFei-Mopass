@@ -12,6 +12,7 @@ import com.demo.backstage.doman.Enums;
 import com.demo.backstage.doman.EnumsParent;
 import com.demo.backstage.doman.Util;
 import com.demo.backstage.service.enumService;
+import com.demo.util.StringUtil;
 import com.demo.util.jdbcUtils;
 
 public class enumServiceImpl implements enumService {
@@ -142,27 +143,45 @@ public class enumServiceImpl implements enumService {
 	 * @date  2016-8-4
 	 */
 	@Override
-	public String updateEnumsType(Enums enums) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public String addEnumsType(Enums enums) {	
+	public Integer updateEnumsType(EnumsParent enumsPar) {
+		Integer saveOrUpdateData = 0;
+		String sql = "update bac_enum_parentdesc set";
+		if(StringUtil.isNotEmpty(enumsPar.getEname())){
+			sql+=" ename ='"+enumsPar.getEname()+"' ";
+		}
+		if(StringUtil.isNotEmpty(enumsPar.getEvalue())){
+			sql+=" evalue ='"+enumsPar.getEvalue()+"' ";
+		}
 		
-
-
-		return null;
+		
+		
+				//" value('"+enumsPar.getEvalue()+"','"+enumsPar.getEdesc()+"','"+enumsPar.getIsDelete()+"','"+enumsPar.getUpdateUser()+"','"+enumsPar.getUpdateTime()+"')";
+		log.info("####执行sql:" +sql);
+		 saveOrUpdateData = jdbcutils.saveOrUpdateData(sql, null);
+		return saveOrUpdateData;
 	}
 	@Override
-	public String updateEnumsChild(Enums enums) {
+	public Integer addEnumsType(EnumsParent enumsPar) {
+		Integer saveOrUpdateData = 0;
+		String sql = "insert into bac_enum_parentdesc(evalue,ename,edesc,is_delete,update_user,update_time)" +
+				" value('"+enumsPar.getEvalue()+"','"+enumsPar.getEdesc()+"','"+enumsPar.getIsDelete()+"','"+enumsPar.getUpdateUser()+"','"+enumsPar.getUpdateTime()+"')";
+		log.info("####执行sql:" +sql);
+		 saveOrUpdateData = jdbcutils.saveOrUpdateData(sql, null);
+		return saveOrUpdateData;
+	}
+	
+	@Override
+	public Integer updateEnumsChild(Enums enums) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public String addEnumsChild(Enums enums) {
+	public Integer addEnumsChild(Enums enums) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 
 
