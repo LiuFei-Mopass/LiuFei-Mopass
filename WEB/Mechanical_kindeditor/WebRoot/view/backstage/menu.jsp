@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/default/easyui.css" />   
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/icon.css" />   
+	<link rel="stylesheet" type="text/css" href="<%=paths%>css/menu.css" />   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
 	<script type="text/javascript" src="<%=paths%>js/menu.js"></script> 
@@ -27,8 +28,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		html,body,div{margin: 0;padding: 0;font-family:"Microsoft YaHei";font-size: 12px; }
 	</style> 
 	<script type="text/javascript">
-	
+		
 		function add(inParm,loc){
+			 var divId = "";
+			var divAll = $(".menu_info");
+			$(divAll).each(function(i){
+			   divId+=","+this.id;
+			 });
+			var split =  divId.split("\,");
+			$(".clicklStyle").removeClass("clicklStyle");
+			$("#"+inParm).addClass("clicklStyle");
+			//性能优化  点击菜单有迟钝
+			 /*for(var i =0;i<split.length;i++){
+			 	if(split[i]!=inParm){
+					$("#"+split[i]).removeClass("clicklStyle");
+			 	}
+			 }*/
 			var topWid = ($('#top').panel('options').width);
 			var leftWid = ($('#sys').panel('options').width);
 			var cWid = topWid-leftWid;
@@ -70,9 +85,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		}
 	</script>
-	<style type="text/css">
-	#menu li{line-height: 20px;	}
-	</style>
   </head>
   
   
@@ -81,12 +93,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div data-options="region:'south',title:''" style="height:30px;">
 	    	<div>您好，[${user.name}]</div>
 	    </div>   
-	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:200px;">
+	    <div id='sys' data-options="region:'west',title:'系统导航',split:false" style="width:250px;">
 	    <div>
 			<!-- <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">后台管理</a> 
 			<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> --> 
 	    </div>
 		<div style="border-bottom: 0px red solid;"></div>
+	    	<!--  
 	    	<ul id="tree_menu" class="easyui-tree" data-options="animate:true,lines:true">  
 	    		<c:forEach items="${user.rights}" var='right'> 
 				    <li>   
@@ -101,8 +114,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            	</li> 
             	</c:forEach>  
         </ul>   
-
-	    
+	    	 -->
+	    	 
+	    	 <div id="aa" class="easyui-accordion  " style="width:248px;height:100%;padding:0">
+			   <c:forEach items="${user.rights}" var='right'> 
+				    <div class='' title="<c:if test="${right.parentId==null}"> ${right.rightName}</c:if>" data-options="iconCls:'icon-reload',selected:true" style="padding:0px;">
+							<c:forEach items="${right.chRights}" var='ch'>
+			                        <div class ="menu_info" id="${ch.id}"  onclick="add(this.id,'${ch.location}')"> 
+			                        	<span style="margin-left: 20px;">${ch.rightName}</span>
+			                        </div>
+			                  	</c:forEach>
+				    </div>
+            	</c:forEach>  
+			</div>
 	    </div>   
 	    <div id="cen" data-options="region:'center',title:'操作区'" style="padding:0px;background:#eee;">
 		    <div id="tabs" class="easyui-tabs" data-options="fit:true" style="width:100%">   

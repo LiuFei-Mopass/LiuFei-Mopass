@@ -59,7 +59,7 @@ $(function(){
 				if(rowData!=null){
 					$.messager.confirm('确认','您确认想要删除记录吗？',function(r){    
 					    if (r){    
-					        //deleteNewsInfo();
+					        deleteNewsInfo();
 					    }    
 					});
 				}else{

@@ -1,0 +1,26 @@
+	#menu li{line-height: 20px;	}
+	.menu_title{
+		line-height:30px;
+		border-radius:5px; 
+		margin-top: 2px;
+	}
+	.menu_info{
+		border: 1px #D3D3D3 solid;
+		border-left: none;
+		border-right: none;
+		line-height: 27px;
+		cursor: pointer;
+		border-radius:5px; 
+		margin-top: 2px;
+	}
+	.clicklStyle{
+		background: #0092DC;
+		color: whiite;
+	}
+	.menu_info:hover{
+		background: #ADCEEF
+	}
+	 .datagrid-row {
+        height: 40px;
+        overflow: hidden;
+    }
