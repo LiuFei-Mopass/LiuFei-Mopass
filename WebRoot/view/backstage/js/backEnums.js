@@ -40,7 +40,7 @@ $(function(){
 			text : "新增",
 			width :70,
 			handler: function(){
-				
+				addEnumsType();
 			}
 		},'-',{
 			iconCls: 'icon-edit',
@@ -49,7 +49,7 @@ $(function(){
 			handler: function(){
 				var rowData = $("#dg_enumsParent").datagrid("getSelected");
 				if(rowData!=null){
-					updateEnums();
+					updateEnumsType();
 				}else{
 					alertMsgBox("提示","请选择要修改的数据!","info");
 				}
@@ -61,6 +61,7 @@ $(function(){
 			handler: function(){
 				var rowData = $("#dg_enumsParent").datagrid("getSelected");
 				if(rowData!=null){
+					alert('删除');
 				}else{
 					alertMsgBox("提示","请选择要删除的数据!","info");
 				}
@@ -126,15 +127,7 @@ $(function(){
 	});
 	
 	page("enumsParent");   //翻页汉化
-	//打开新增枚举类型dialog
-	$("#add_enumsParent").linkbutton({
-		onClick:function(){
-			$('#dd_dlg_parent').panel('open');
-			$("#s1_text").textbox("setValue",null);
-			$("#s2_text").textbox("setValue",null);
-			$("#s3_text").val(null);
-		}
-	});
+
 	//打开新增枚举值dialog
 	$("#add_backEnums").linkbutton({
 		onClick:function(){
@@ -167,10 +160,21 @@ $(function(){
 });
 
 
+/**
+ * 新增枚举值类型
+ */
+function addEnumsType(){
+	$('#dd_dlg_parent').panel('open');
+	$("#s1_text").textbox("setValue",null);
+	$("#s2_text").textbox("setValue",null);
+	$("#s3_text").val(null);
+}
 
 
-
-function updateEnums(){
+/**
+ * 修改枚举值类型
+ */
+function updateEnumsType(){
 	var enumsParent = $('#dg_enumsParent').datagrid('getSelected');
 	if(enumsParent!=null){
 		$('#dd_dlg_parent_edit').panel('open');

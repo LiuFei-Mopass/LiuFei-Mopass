@@ -49,10 +49,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 枚举值详细列表 -->
 	<div>
   		<div style="margin-top: 10px;">
-			<div id="tb_enums">
-				<a id='add_backEnums' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
-				<a id='edit_backEnums' class="easyui-linkbutton" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
-			</div>
 			<table id="dg_enums" width="100%" data-options=""></table> 
   		</div>
 

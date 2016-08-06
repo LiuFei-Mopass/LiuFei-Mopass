@@ -123,7 +123,7 @@ public class enumServiceImpl implements enumService {
 		log.info("*****开始查询子类枚举值");
 		long startTime = System.currentTimeMillis();
 		List<Enums>  enumlist = new ArrayList<Enums>();
-		String sql = "select * from bac_enums  where useable ='1' and query_id='"+parentid+"' order by update_time asc ";
+		String sql = "select * from bac_enums  where is_delete ='0' and query_id='"+parentid+"' order by update_time asc ";
 		try {
 			log.info("*****查询SQL:"+sql);
 			List<Map<String, String>> findModeResult = jdbcutils.executeQuery(sql, null);
